@@ -1,19 +1,35 @@
-export const typeDefs=`#graphql
+export const typeDefs = `#graphql
 
 type User{
 id:ID!
 name:String!
 email:String!
 }
+type Review{
+    id:ID!
+    rating:Int!
+    review:String!
+}
+
+type Product{
+    id:ID!
+    name:String!
+    price:String!
+    seller:User
+    reviews:[Review]
+}
+
 type Post{
     id:ID!
     title:String!
 }
 
 type Query{
-users:[User]
+users:[User]!
+reviews:[Review]!
+products:[Product]!
 posts:[Post]
 post(id:ID):Post
 }
 
-`
+`;
